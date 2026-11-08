@@ -1,6 +1,8 @@
 const root = document.documentElement;
 const toggleBtn = document.getElementById("toggle-dark");
 const icon = document.getElementById("icon");
+const searchBtn = document.getElementById;
+const searchInput = document.getElementById;
 
 function updateButton() {
   const isDark = root.classList.contains("dark");
@@ -150,5 +152,17 @@ function showDetails(planet) {
           </div>
         </div>`;
 }
+
+function showSuggestions(list) {}
+
+function getMatches(query) {}
+
+searchInput.addEventListener("input", (e) => {
+  const query = e.target.value.toLowerCase.trim();
+});
+
+searchBtn.addEventListener("click", () => {
+  const query = searchInput.value.toLowerCase.trim();
+});
 
 loadPlanets();
