@@ -1,8 +1,8 @@
 const root = document.documentElement;
 const toggleBtn = document.getElementById("toggle-dark");
 const icon = document.getElementById("icon");
-const searchBtn = document.getElementById;
-const searchInput = document.getElementById;
+const searchBtn = document.getElementById("searchbtn");
+const searchInput = document.getElementById("search-planet");
 
 function updateButton() {
   const isDark = root.classList.contains("dark");
@@ -153,16 +153,53 @@ function showDetails(planet) {
         </div>`;
 }
 
-function showSuggestions(list) {}
+function showSuggestions(list) {
+  const ul = document.getElementById("suggestions");
+  ul.replaceChildren();
 
-function getMatches(query) {}
+  list.forEach((p) => {
+    const li = document.createElement("li");
+    li.textContent = p.name;
+    li.addEventListener("click", () => {
+      showDetails(p);
+      searchInput.value = p.name;
+      ul.replaceChildren();
+    });
+    ul.appendChild(li);
+  });
+}
+
+function getMatches(query) {
+  return planets.filter((p) => p.name.toLowerCase().startsWith(query));
+}
 
 searchInput.addEventListener("input", (e) => {
-  const query = e.target.value.toLowerCase.trim();
+  const query = e.target.value.toLowerCase().trim();
+  if (!query) {
+    showSuggestions([]);
+    return;
+  }
+  showSuggestions(getMatches(query));
 });
 
 searchBtn.addEventListener("click", () => {
-  const query = searchInput.value.toLowerCase.trim();
+  const query = searchInput.value.toLowerCase().trim();
+  const matches = getMatches(query);
+
+  const small = document.querySelector(".error");
+  if (!query || !matches.length) {
+    small.classList.remove("hidden");
+    small.textContent = "Not found";
+    return;
+  }
+  small.classList.add("hidden");
+  showDetails(matches[0]);
+  const ul = document.getElementById("suggestions");
+  ul.replaceChildren();
+});
+
+document.getElementById("form").addEventListener("submit", (e) => {
+  e.preventDefault();
 });
 
 loadPlanets();

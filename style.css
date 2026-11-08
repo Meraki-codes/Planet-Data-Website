@@ -29,6 +29,7 @@ html.dark {
   --toggle-color: #90a4d4;
   --search-color: #60abff;
   --card-background: #1e2a47;
+  --list-background: #395491;
   --background: #141d2f;
   --table-header: #90a4d4;
   --header-color: #d1e3ff;
@@ -117,7 +118,7 @@ header .dark-btn {
   padding: 8px;
   box-shadow: var(--shadow);
   border-radius: 15px;
-  background-color: var(--card-background);
+  background-color: var(--list-background);
   position: absolute;
   top: 100%;
   left: 0;
@@ -164,7 +165,17 @@ button {
   text-align: center;
 }
 
-button[type="submit"] {
+.error {
+  color: red;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.hidden {
+  display: none;
+}
+
+#searchbtn {
   border: none;
   background-color: var(--search-color);
   padding: 12px 24px;
