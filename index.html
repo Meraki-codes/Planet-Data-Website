@@ -15,11 +15,12 @@
     <title>Planetary Facts</title>
   </head>
   <body>
-    <div id="search-container">
+    <div class="planet-container">
       <header>
-        <img src="logo_black.svg" alt="Planet Logo" />
+        <img class="light-logo" src="logo_black.svg" alt="Planet Logo" />
+        <img class="dark-logo" src="dark-mode.svg" alt="Planet Logo" />
         <button class="dark-btn" id="toggle-dark">
-          Dark <i class="fa-solid fa-moon"></i>
+          Dark <i id="icon" class="fa-solid fa-moon"></i>
         </button>
       </header>
 
@@ -32,90 +33,44 @@
             id="search-planet"
             placeholder="Search planet name"
           />
+
+          <button type="submit">Search</button>
         </div>
-        <button type="submit">Search</button>
+
+        <ul id="suggestions"></ul>
       </form>
 
-      <div class="planet-info">
-        <div class="planet-image">
-          <img src="image 26.png" alt="Planet Image" />
-        </div>
-
-        <div class="planet-data">
-          <div class="planet-title">
-            <h2 id="planet-name">Earth</h2>
-            <small id="planet-type">Terrestial Planet</small>
-          </div>
-
-          <div class="planet-description">
-            <p id="planet-description">
-              The only planet to support life, with liquid water on its surface.
-            </p>
-          </div>
-
-          <div class="planet-stats">
-            <div class="planet-stat">
-              <span class="stat-label">Gravity</span>
-              <span class="stat-value" id="gravity">9.8</span>
-            </div>
-
-            <div class="planet-stat">
-              <span class="stat-label">Mass</span>
-              <span class="stat-value" id="mass">0.00315</span>
-            </div>
-
-            <div class="planet-stat">
-              <span class="stat-label">Period</span>
-              <span class="stat-value" id="period">365</span>
-            </div>
-          </div>
-
-          <div class="planet-numbers">
-            <div class="number-container">
-              <i class="fa-solid fa-temperature-low"></i>
-              <span class="number-value" id="temperature">288</span>
-            </div>
-
-            <div class="number-container">
-              <i class="fa-solid fa-moon"></i>
-              <span class="number-value" id="moon">1</span>
-            </div>
-
-            <div class="number-container">
-              <i class="fa-solid fa-circle"></i>
-              <span class="number-value" id="sun">12756</span>
-            </div>
-
-            <div class="number-container">
-              <i class="fa-regular fa-sun"></i>
-              <span class="number-value" id="distance">149.6</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="planet-info" id="planet-info"></div>
 
       <div class="planets-datum">
-        <h1>Planetary Facts at a Glance</h1>
+        <div class="descriptions">
+          <h1>Planetary Facts at a Glance</h1>
 
-        <p>
-          Below is a comparative table of major planets in our solar system. The
-          data highlights key physical properties used by astronomers and
-          researchers worldwide.
-        </p>
+          <p>
+            Below is a comparative table of major planets in our solar system.
+            The data highlights key physical properties used by astronomers and
+            researchers worldwide.
+          </p>
+        </div>
 
-        <h3>Data about the planets of our solar system</h3>
+        <div class="planets-facts">
+          <h3>
+            Data about the planets of our solar system(Planetary facts taken
+            from NASA)
+          </h3>
 
-        <table>
-          <thead>
-            <tr>
-              <th colspan="2"></th>
-              <th>Name</th>
-              <th>Mass(1024kg)</th>
-              <th>Diameter(km)</th>
-            </tr>
-          </thead>
-          <tbody id="table-data"></tbody>
-        </table>
+          <table>
+            <thead>
+              <tr>
+                <th colspan="2"></th>
+                <th>Name</th>
+                <th>Mass(1024kg)</th>
+                <th>Diameter(km)</th>
+              </tr>
+            </thead>
+            <tbody id="table-data"></tbody>
+          </table>
+        </div>
       </div>
     </div>
 
